@@ -494,8 +494,7 @@ trait ContentExtractor {
     val node = addSiblings(targetNode)
     for {
       e <- node.children
-      if (e.tagName != "p")
-    } {
+      if e.tagName != "p" } {
       trace(logPrefix + "CLEANUP  NODE: " + e.id + " class: " + e.attr("class"))
       if (isHighLinkDensity(e) || isTableTagAndNoParagraphsExist(e) || !isNodeScoreThreshholdMet(node, e)) {
         try {
@@ -549,8 +548,7 @@ trait ContentExtractor {
           wordStats: WordStats = StopWords.getStopWordCount(firstParagraph.text)
           paragraphScore: Int = wordStats.getStopWordCount
           siblingBaseLineScore: Double = .30
-          if ((baselineScoreForSiblingParagraphs * siblingBaseLineScore).toDouble < paragraphScore)
-        } yield {
+          if (baselineScoreForSiblingParagraphs * siblingBaseLineScore).toDouble < paragraphScore } yield {
 
           trace(logPrefix + "This node looks like a good sibling, adding it")
           "<p>" + firstParagraph.text + "<p>"

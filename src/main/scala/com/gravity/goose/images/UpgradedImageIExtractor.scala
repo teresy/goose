@@ -216,8 +216,7 @@ class UpgradedImageIExtractor(httpClient: HttpClient, article: Article, config: 
         if (fileExtension != ".gif" && fileExtension != "NA")
         imageSrc = locallyStoredImage.imgSrc
         if ((depthLevel >= 1 && locallyStoredImage.width > 300) || depthLevel < 1)
-        if (!isBannerDimensions(width, height))
-      } {
+        if !isBannerDimensions(width, height) } {
         val sequenceScore: Float = 1.0f / cnt
         val area: Float = width * height
         var totalScore: Float = 0
